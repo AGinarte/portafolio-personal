@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Álvaro García Ginarte — Sistemas IT &amp; Ciberseguridad</title>
+<meta name="description" content="Consultor IT Junior en Madrid especializado en administración de sistemas, infraestructura de red y ciberseguridad. VMware, Proxmox, Sophos, Veeam, Active Directory y Office 365." />
+<meta name="author" content="Álvaro García Ginarte" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Vista previa al compartir (Open Graph / Twitter) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Álvaro García Ginarte — Sistemas IT & Ciberseguridad" />
+<meta property="og:description" content="Consultor IT Junior en Madrid: administración de sistemas, infraestructura de red y ciberseguridad." />
+<meta property="og:image" content="https://portafolio-personal-theta-three.vercel.app/foto.png" />
+<meta property="og:url" content="https://portafolio-personal-theta-three.vercel.app/" />
+<meta property="og:locale" content="es_ES" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Álvaro García Ginarte — Sistemas IT & Ciberseguridad" />
+<meta name="twitter:description" content="Consultor IT Junior en Madrid: administración de sistemas, infraestructura de red y ciberseguridad." />
+<meta name="twitter:image" content="https://portafolio-personal-theta-three.vercel.app/foto.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=14" />
+</head>
+<body class="dark">
+
+<!-- CABLE RJ45: recorre toda la página y se enchufa en cada objeto -->
+<svg id="wire" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <path id="wireBase"></path>
+  <path id="wireCore"></path>
+  <g id="plugStart" class="plug">
+    <use href="#rj45"/>
+  </g>
+  <g id="plugHead" class="plug">
+    <use href="#rj45"/>
+  </g>
+
+  <!-- conector RJ45 reutilizable (apunta hacia arriba; el JS lo rota) -->
+  <defs>
+    <g id="rj45">
+      <!-- funda / protector del cable -->
+      <path class="plug-boot" d="M -7 26 C -10 26 -11 19 -11 13 L 11 13 C 11 19 10 26 7 26 Z"/>
+      <!-- carcasa principal -->
+      <rect class="plug-shell" x="-11" y="-7" width="22" height="20" rx="2.5"/>
+      <!-- pestaña de bloqueo (clip) -->
+      <path class="plug-clip" d="M -3.5 13 L -3.5 18 L 3.5 18 L 3.5 13 Z"/>
+      <!-- punta que entra en el jack -->
+      <rect class="plug-tip" x="-8" y="-19" width="16" height="13" rx="1.8"/>
+      <!-- 8 pines dorados -->
+      <g class="plug-pins">
+        <rect x="-6.8" y="-19" width="1.1" height="9"/>
+        <rect x="-4.85" y="-19" width="1.1" height="9"/>
+        <rect x="-2.9" y="-19" width="1.1" height="9"/>
+        <rect x="-0.95" y="-19" width="1.1" height="9"/>
+        <rect x="1.0" y="-19" width="1.1" height="9"/>
+        <rect x="2.95" y="-19" width="1.1" height="9"/>
+        <rect x="4.9" y="-19" width="1.1" height="9"/>
+        <rect x="6.85" y="-19" width="1.1" height="9"/>
+      </g>
+      <!-- costura de la carcasa -->
+      <line class="plug-seam" x1="-11" y1="-1" x2="11" y2="-1"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">alvaro<span>.dev</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#skills">Tecnologías</a></li>
+      <li><a href="#experience">Trayectoria</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="story">
+
+  <!-- 00 · TERMINAL -->
+  <section class="step step-hero" id="hero">
+    <div class="terminal" id="terminal">
+      <div class="term-bar"><i></i><i></i><i></i><span class="term-title">alvaro@madrid: ~</span></div>
+      <pre class="term-body" id="termBody"></pre>
+      <span class="port term-port" data-order="0"></span>
+    </div>
+  </section>
+
+  <!-- 01 · SOBRE MÍ (la foto) -->
+  <section class="step obj-right" id="about">
+    <div class="inner">
+      <div class="panel">
+        <span class="step-kicker mono">/ sobre mí</span>
+        <h2>Sobre mí</h2>
+        <p>
+          Profesional de IT con experiencia práctica en administración de sistemas, infraestructura de red
+          y ciberseguridad. Me formé en <strong>Administración de Sistemas Informáticos en Red (ASIR)</strong>
+          y hoy trabajo como Consultor IT Junior, gestionando entornos empresariales reales cada día.
+        </p>
+        <p>
+          Aprendo rápido, soy detallista y me muevo con soltura presencial y en remoto. Abordo cada problema
+          de forma práctica: un backup que falla de madrugada o un firewall mal configurado bloqueando producción.
+        </p>
+        <div class="meta-row">
+          <span><b class="mono">Ubicación</b>Madrid, España</span>
+          <span><b class="mono">Idiomas</b>Español · Inglés</span>
+          <span><b class="mono">Estado</b><em class="accent">Abierto a oportunidades</em></span>
+        </div>
+      </div>
+      <div class="obj">
+        <div class="photo-card">
+          <img src="foto.png" alt="Álvaro García Ginarte" />
+          <span class="port photo-port" data-order="1"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · TECNOLOGÍAS (la nube) -->
+  <section class="step obj-left" id="skills">
+    <div class="inner">
+      <div class="obj">
+        <svg class="ic ic-cloud" viewBox="0 0 260 170">
+          <path class="ic-body" d="M78 142 C45 142 24 118 32 90 C18 74 28 46 54 46 C60 22 92 8 120 20 C138 4 174 8 186 32 C216 28 240 52 232 82 C254 92 252 130 224 138 C218 142 92 142 78 142 Z"/>
+          <circle class="port" data-order="2" cx="131" cy="142" r="1"/>
+        </svg>
+      </div>
+      <div class="panel">
+        <span class="step-kicker mono">/ tecnologías</span>
+        <h2>Tecnologías</h2>
+        <p>Herramientas con las que despliego, aseguro y opero sistemas a diario.</p>
+        <div class="chips">
+          <span>VMware ESXi</span><span>Proxmox VE</span><span>Veeam</span><span>CloudBacko</span>
+          <span>Sophos</span><span>Zscaler</span><span>pfSense</span><span>Active Directory</span>
+          <span>Windows Server</span><span>Office 365</span><span>TCP/IP</span><span>Soporte remoto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · TRAYECTORIA (el candado) -->
+  <section class="step obj-right" id="experience">
+    <div class="inner">
+      <div class="panel">
+        <span class="step-kicker mono">/ trayectoria</span>
+        <h2>Trayectoria</h2>
+        <div class="rack rack-current">
+          <div class="rack-head"><span class="rack-date mono">2025 → ahora</span><span class="rack-badge">Actual</span></div>
+          <h3>Consultor IT Junior <em>· Vicmartin, Madrid</em></h3>
+          <ul>
+            <li>Backups con Veeam y CloudBacko: programaciones automáticas y auditorías semanales</li>
+            <li>Soporte técnico presencial y en remoto</li>
+            <li>Despliegue y configuración de servidores con VMware ESXi</li>
+            <li>Reglas de firewall y políticas de seguridad con Sophos</li>
+            <li>Filtrado de seguridad en la nube mediante Zscaler</li>
+            <li>Administración de tenants de Office 365 y soporte de hardware y red</li>
+          </ul>
+        </div>
+        <div class="rack">
+          <span class="rack-date mono">2023 - 2025</span>
+          <h3>Técnico Superior ASIR <em>· IES Leonardo Da Vinci</em></h3>
+          <p>Administración de sistemas, redes, virtualización y ciberseguridad con herramientas empresariales.</p>
+        </div>
+      </div>
+      <div class="obj">
+        <svg class="ic ic-lock" viewBox="0 0 170 200">
+          <path class="ic-shackle" d="M50 92 V62 a35 35 0 0 1 70 0 V92"/>
+          <rect class="ic-body" x="30" y="90" width="110" height="96" rx="18"/>
+          <circle class="ic-hole" cx="85" cy="128" r="10"/>
+          <rect class="ic-hole" x="80" y="128" width="10" height="28" rx="5"/>
+          <circle class="port" data-order="3" cx="30" cy="138" r="1"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · PROYECTOS (NAS / clúster) -->
+  <section class="step obj-left" id="projects">
+    <div class="inner">
+      <div class="obj">
+        <svg class="ic ic-nas" viewBox="0 0 230 180">
+          <rect class="ic-body" x="24" y="24" width="182" height="132" rx="12"/>
+          <rect class="ic-bay" x="44" y="44" width="120" height="26" rx="4"/>
+          <rect class="ic-bay" x="44" y="78" width="120" height="26" rx="4"/>
+          <rect class="ic-bay" x="44" y="112" width="120" height="26" rx="4"/>
+          <circle class="ic-led" cx="182" cy="57" r="5"/>
+          <circle class="ic-led" cx="182" cy="91" r="5"/>
+          <circle class="ic-led" cx="182" cy="125" r="5"/>
+          <circle class="port" data-order="4" cx="24" cy="90" r="1"/>
+        </svg>
+      </div>
+      <div class="panel">
+        <span class="step-kicker mono">/ proyectos</span>
+        <h2>Proyectos</h2>
+        <a href="https://github.com/enriquemontalvomejias/MetroASIR" target="_blank" rel="noopener" class="proj-card" data-tilt>
+          <div class="proj-top">
+            <div><span class="proj-num mono">TFG · 2025</span><h3>MetroASIR</h3></div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p>
+            Infraestructura virtualizada completa sobre Proxmox VE, segmentada en zonas WAN, LAN y DMZ con pfSense,
+            para alojar una app web del Metro de Madrid con rutas óptimas por Dijkstra. Publicada en
+            <span class="accent mono">metroasir.com</span> mediante Cloudflare Tunnel sobre HTTPS, sin puertos abiertos.
+          </p>
+          <div class="proj-tags">
+            <span>Proxmox</span><span>pfSense</span><span>MariaDB</span><span>PHP</span><span>Cloudflare</span><span>Tailscale</span><span>Dijkstra</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · CONTACTO (toma RJ45 iluminada) -->
+  <section class="step obj-right step-contact" id="contact">
+    <div class="inner">
+      <div class="panel">
+        <span class="step-kicker mono">/ contacto</span>
+        <h2 class="contact-title">Hablemos.</h2>
+        <p class="contact-sub">Busco oportunidades en administración de sistemas, infraestructura o ciberseguridad.</p>
+        <div class="contact-links">
+          <a href="mailto:alvaroginarte98@gmail.com" class="contact-link">
+            <span class="mono cl-num">01</span><span class="cl-text">alvaroginarte98@gmail.com</span><span class="cl-arrow">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/alvaro-garcia-ginarte-43b567187/" target="_blank" rel="noopener" class="contact-link">
+            <span class="mono cl-num">02</span><span class="cl-text">LinkedIn — alvaro-garcia-ginarte</span><span class="cl-arrow">↗</span>
+          </a>
+        </div>
+        <p class="foot mono">© 2026 Álvaro García Ginarte · Madrid, España</p>
+      </div>
+      <div class="obj">
+        <svg class="ic ic-socket" viewBox="0 0 170 210">
+          <rect class="ic-plate" x="22" y="12" width="126" height="186" rx="16"/>
+          <rect class="ic-plate-inner" x="34" y="24" width="102" height="162" rx="10"/>
+          <circle class="ic-screw" cx="85" cy="34" r="4.5"/>
+          <circle class="ic-screw" cx="85" cy="176" r="4.5"/>
+          <!-- módulo keystone -->
+          <rect class="ic-jackframe" x="50" y="68" width="70" height="78" rx="7"/>
+          <!-- apertura RJ45 (muesca de la pestaña arriba) -->
+          <path class="ic-jackhole" d="M60 94 H78 V84 H92 V94 H110 V136 H60 Z"/>
+          <!-- 8 contactos dorados -->
+          <g class="ic-pins">
+            <rect x="63" y="97" width="2.4" height="15"/>
+            <rect x="68.6" y="97" width="2.4" height="15"/>
+            <rect x="74.2" y="97" width="2.4" height="15"/>
+            <rect x="79.8" y="97" width="2.4" height="15"/>
+            <rect x="85.4" y="97" width="2.4" height="15"/>
+            <rect x="91" y="97" width="2.4" height="15"/>
+            <rect x="96.6" y="97" width="2.4" height="15"/>
+            <rect x="102.2" y="97" width="2.4" height="15"/>
+          </g>
+          <circle class="port" data-order="5" cx="85" cy="76" r="1"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js?v=17"></script>
+</body>
+</html>
