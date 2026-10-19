@@ -244,6 +244,55 @@
     });
   }
 
+  /* ---- CARRUSEL de proyectos ---- */
+  (function () {
+    const root = document.getElementById('projCarousel');
+    if (!root) return;
+    const track = document.getElementById('projTrack');
+    const cards = Array.from(track.children);
+    const prev = document.getElementById('projPrev');
+    const next = document.getElementById('projNext');
+    const dotsBox = document.getElementById('projDots');
+    const count = document.getElementById('projCount');
+    if (cards.length < 2) { root.classList.add('single'); cards.forEach(c => c.classList.add('is-active')); return; }
+    const pad = (n) => String(n).padStart(2, '0');
+    const dots = cards.map((_, i) => {
+      const b = document.createElement('button');
+      b.setAttribute('aria-label', 'Ir al proyecto ' + (i + 1));
+      b.addEventListener('click', () => go(i));
+      dotsBox.appendChild(b); return b;
+    });
+    let cur = 0;
+    function go(i) {
+      i = Math.max(0, Math.min(cards.length - 1, i));
+      track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft - 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    function setActive(i) {
+      cur = i;
+      cards.forEach((c, k) => c.classList.toggle('is-active', k === i));
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+      prev.disabled = i === 0; next.disabled = i === cards.length - 1;
+      count.textContent = pad(i + 1) + ' / ' + pad(cards.length);
+    }
+    let sTick = false;
+    track.addEventListener('scroll', () => {
+      if (sTick) return; sTick = true;
+      requestAnimationFrame(() => {
+        const i = Math.round(track.scrollLeft / (cards[0].offsetWidth + 20));
+        if (i !== cur) setActive(Math.max(0, Math.min(cards.length - 1, i)));
+        sTick = false;
+      });
+    }, { passive: true });
+    prev.addEventListener('click', () => go(cur - 1));
+    next.addEventListener('click', () => go(cur + 1));
+    root.setAttribute('tabindex', '-1');
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+    });
+    setActive(0);
+  })();
+
   /* ---- ARRANQUE ---- */
   function start() { Wire.build(); onScroll(); }
   start();

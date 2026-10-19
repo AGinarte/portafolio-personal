@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=14" />
+<link rel="stylesheet" href="style.css?v=17" />
 </head>
 <body class="dark">
 
@@ -69,7 +69,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">alvaro<span>.dev</span></a>
+    <a href="#hero" class="nav-logo">alvaro<span>.garcia</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Sobre mí</a></li>
       <li><a href="#skills">Tecnologías</a></li>
@@ -88,7 +88,7 @@
   <!-- 00 · TERMINAL -->
   <section class="step step-hero" id="hero">
     <div class="terminal" id="terminal">
-      <div class="term-bar"><i></i><i></i><i></i><span class="term-title">alvaro@madrid: ~</span></div>
+      <div class="term-bar"><i></i><i></i><i></i><span class="term-title">alvaro.garcia: ~</span></div>
       <pre class="term-body" id="termBody"></pre>
       <span class="port term-port" data-order="0"></span>
     </div>
@@ -162,6 +162,7 @@
             <li>Reglas de firewall y políticas de seguridad con Sophos</li>
             <li>Filtrado de seguridad en la nube mediante Zscaler</li>
             <li>Administración de tenants de Office 365 y soporte de hardware y red</li>
+            <li>Diseño y despliegue de un inventario centralizado con GLPI para todos los clientes</li>
           </ul>
         </div>
         <div class="rack">
@@ -200,20 +201,47 @@
       <div class="panel">
         <span class="step-kicker mono">/ proyectos</span>
         <h2>Proyectos</h2>
-        <a href="https://github.com/enriquemontalvomejias/MetroASIR" target="_blank" rel="noopener" class="proj-card" data-tilt>
-          <div class="proj-top">
-            <div><span class="proj-num mono">TFG · 2025</span><h3>MetroASIR</h3></div>
-            <span class="proj-arrow">↗</span>
+        <div class="proj-carousel" id="projCarousel">
+          <div class="proj-stage">
+          <button class="proj-btn proj-btn-prev" id="projPrev" aria-label="Proyecto anterior">←</button>
+          <button class="proj-btn proj-btn-next" id="projNext" aria-label="Proyecto siguiente">→</button>
+          <div class="proj-track" id="projTrack">
+            <a href="https://github.com/enriquemontalvomejias/MetroASIR" target="_blank" rel="noopener" class="proj-card" data-tilt>
+              <div class="proj-top">
+                <div><span class="proj-num mono">TFG · 2025</span><h3>MetroASIR</h3></div>
+                <span class="proj-arrow">↗</span>
+              </div>
+              <p>
+                Infraestructura virtualizada completa sobre Proxmox VE, segmentada en zonas WAN, LAN y DMZ con pfSense,
+                para alojar una app web del Metro de Madrid con rutas óptimas por Dijkstra. Publicada en
+                <span class="accent mono">metroasir.com</span> mediante Cloudflare Tunnel sobre HTTPS, sin puertos abiertos.
+              </p>
+              <div class="proj-tags">
+                <span>Proxmox</span><span>pfSense</span><span>MariaDB</span><span>PHP</span><span>Cloudflare</span><span>Tailscale</span><span>Dijkstra</span>
+              </div>
+            </a>
+            <div class="proj-card" data-tilt>
+              <div class="proj-top">
+                <div><span class="proj-num mono">Vicmartin · 2026</span><h3>GLPI · Inventario dinámico multicliente</h3></div>
+              </div>
+              <p>
+                Cada cliente tenía su parque de equipos por separado y no había una visión conjunta. Diseñé y puse en marcha
+                un inventario centralizado: un único servidor GLPI que recibe en tiempo real el hardware y el software de los
+                equipos de unas 30 empresas y clasifica cada equipo en su empresa automáticamente, según el dominio.
+                Adapté el despliegue del agente a cada entorno (GPO, Intune o instalación manual en equipos sin dominio y macOS).
+                Ahora todo el equipo técnico consulta en un solo portal un inventario que se actualiza solo.
+              </p>
+              <div class="proj-tags">
+                <span>GLPI</span><span>GLPI Agent</span><span>GPO</span><span>Intune</span><span>PowerShell</span><span>Windows</span><span>macOS</span>
+              </div>
+            </div>
           </div>
-          <p>
-            Infraestructura virtualizada completa sobre Proxmox VE, segmentada en zonas WAN, LAN y DMZ con pfSense,
-            para alojar una app web del Metro de Madrid con rutas óptimas por Dijkstra. Publicada en
-            <span class="accent mono">metroasir.com</span> mediante Cloudflare Tunnel sobre HTTPS, sin puertos abiertos.
-          </p>
-          <div class="proj-tags">
-            <span>Proxmox</span><span>pfSense</span><span>MariaDB</span><span>PHP</span><span>Cloudflare</span><span>Tailscale</span><span>Dijkstra</span>
           </div>
-        </a>
+          <div class="proj-nav">
+            <div class="proj-dots" id="projDots"></div>
+            <span class="proj-count mono" id="projCount"></span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -264,6 +292,6 @@
 
 </main>
 
-<script src="script.js?v=17"></script>
+<script src="script.js?v=18"></script>
 </body>
 </html>
